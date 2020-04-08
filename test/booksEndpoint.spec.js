@@ -43,7 +43,6 @@ describe('GET /api/v1/books', () => {
   // });
 
   it('responds with list of booksas an array', () => {
-    console.table(response.body.books)
     expect(response.body.books)
       .to.be.an('array')
   });
@@ -56,15 +55,13 @@ describe('GET /api/v1/books', () => {
 describe('GET /api/v1/books/:id', () => {
 
 
-  it('responds with a single book', async () => {
+  it('responds with a single book - id', async () => {
     response = await request.get('/api/v1/books/100')
-    console.table(response.body)
     expect(response.body.book.id).to.equal(100)
   });
 
-  it('responds with a single book', async () => {
+  it('responds with a single book - title', async () => {
     response = await request.get('/api/v1/books/900')
-    console.table(response.body)
-    expect(response.body.book.id).to.equal(900)
+    expect(response.body.book.title).to.equal('Learn NodeJS with Thomas - The Sequel')
   });
 });
