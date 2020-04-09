@@ -1,4 +1,4 @@
-'use strict';
+
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -13,13 +13,13 @@ module.exports = {
           key: 'id'
         }
       }
-    )
+    );
   },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.removeColumn(
       'Books',
       'AuthorId'
-    )
+    );
   }
 };

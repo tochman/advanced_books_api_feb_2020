@@ -1,7 +1,7 @@
-'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
-    title: DataTypes.STRING,
+    title: DataTypes.STRING
     // author: {
     //   type: DataTypes.VIRTUAL,
     //   get() {
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     // }
   }, {});
   Book.associate = models => {
-    Book.belongsTo(models.Author, { foreignKey: 'AuthorId', as: 'author' })
+    Book.belongsTo(models.Author, { foreignKey: 'AuthorId', as: 'author' });
   };
   return Book;
 };
