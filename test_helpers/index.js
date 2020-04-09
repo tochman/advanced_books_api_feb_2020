@@ -5,7 +5,7 @@ const adapter = new factory.SequelizeAdapter();
 var factory = factory.factory;
 factory.setAdapter(adapter);
 
-var Models = require('../database/models');
+var Models = require('../models');
 
 // clean the factory state - necessary for mocha watch
 factory.cleanUp();
