@@ -1,11 +1,11 @@
 'use strict';
 
-var factory = require('factory-girl');
-const adapter = new factory.SequelizeAdapter();
-var factory = factory.factory;
+const factoryGirl = require('factory-girl');
+const adapter = new factoryGirl.SequelizeAdapter();
+const factory = factoryGirl.factory;
 factory.setAdapter(adapter);
 
-var Models = require('../models');
+let Models = require('../models');
 
 // clean the factory state - necessary for mocha watch
 factory.cleanUp();
@@ -22,8 +22,8 @@ process.on('unhandledRejection', (reason, p) => {
 });
 */
 
-beforeEach(function (done) {
-  Models.sequelize.sync({ force: true }).then(function () {
+beforeEach(done => {
+  Models.sequelize.sync({ force: true }).then(() => {
     done();
   });
 });

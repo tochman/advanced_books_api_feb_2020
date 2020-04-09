@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function (factory, Models) {
+module.exports = (factory, Models) => {
   factory.define('Book', Models.Book, {
     title: 'Foo',
     createdAt: new Date(),

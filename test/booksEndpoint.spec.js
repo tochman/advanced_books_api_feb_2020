@@ -2,9 +2,8 @@ const app = require('../app')
 const supertest = require('supertest')
 const expect = require('chai').expect
 const jsonResponse = require('./jsonResponse')
-const helper = require('../test_helpers');
-const factory = helper.factory;
-const Models = helper.Models;
+const { factory, Models } = require('../test_helpers');
+
 
 let server, request, response
 
@@ -17,8 +16,8 @@ after((done) => {
   server.close(done)
 })
 
-beforeEach(() => {
-  factory.createMany('Book', 2, [
+beforeEach(async () => {
+  await factory.createMany('Book', 2, [
     { id: 100, title: 'Learn NodeJS with Thomas' },
     { id: 900, title: 'Learn NodeJS with Thomas - The Sequel' }
   ])
@@ -54,7 +53,6 @@ describe('GET /api/v1/books', () => {
 
 describe('GET /api/v1/books/:id', () => {
 
-
   it('responds with a single book - id', async () => {
     response = await request.get('/api/v1/books/100')
     expect(response.body.book.id).to.equal(100)
@@ -63,5 +61,10 @@ describe('GET /api/v1/books/:id', () => {
   it('responds with a single book - title', async () => {
     response = await request.get('/api/v1/books/900')
     expect(response.body.book.title).to.equal('Learn NodeJS with Thomas - The Sequel')
+  });
+
+  it('responds with a single book - including author', async () => {
+    response = await request.get('/api/v1/books/900')
+    expect(response.body.book.author.fullName).to.equal('Thomas Ochman')
   });
 });

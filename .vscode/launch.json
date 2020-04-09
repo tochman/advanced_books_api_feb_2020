@@ -24,6 +24,7 @@
       "name": "Mocha All",
       "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
       "args": [
+        "NODE_ENV=test NODE_NO_WARNINGS=1",
         "--timeout",
         "999999",
         "--colors",
@@ -38,6 +39,7 @@
       "name": "Mocha Current File",
       "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
       "args": [
+        "NODE_ENV=test NODE_NO_WARNINGS=1",
         "--timeout",
         "999999",
         "--colors",
