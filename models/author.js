@@ -1,8 +1,14 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Author = sequelize.define('Author', {
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     fullName: {
       type: DataTypes.VIRTUAL,
       get () {
@@ -10,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   }, {});
-  Author.associate = function (models) {
-    Author.hasMany(models.Book, {as: 'books'});
+  Author.associate = models => {
+    Author.hasMany(models.Book, { as: 'books' });
   };
   return Author;
 };

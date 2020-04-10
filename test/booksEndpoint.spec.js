@@ -15,7 +15,9 @@ after(done => {
 });
 
 beforeEach(async () => {
-  const author = await factory.create('Author', { id: 10, firstName: 'Thomas', lastName: 'Ochman' });
+  const author = await factory.create('Author',
+    { id: 10, firstName: 'Thomas', lastName: 'Ochman' }
+  );
   await factory.createMany('Book', 2, [
     { id: 100, title: 'Learn NodeJS with Thomas', AuthorId: author.id },
     { id: 900, title: 'Learn NodeJS with Thomas - The Sequel', AuthorId: author.id }
