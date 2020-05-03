@@ -1,11 +1,12 @@
-module.exports = {
+const options = {
   'development': {
     'username': 'api_user',
     'password': 'password',
     'database': 'books_development',
     'host': '127.0.0.1',
     'dialect': 'postgres',
-    'operatorsAliases': false
+    'operatorsAliases': false,
+    'logging': false
   },
   'test': {
     'username': 'api_user',
@@ -25,3 +26,5 @@ module.exports = {
     'operatorsAliases': false
   }
 };
+
+module.exports = options

@@ -14,21 +14,24 @@
       "program": "${workspaceFolder}/bin/www",
       "serverReadyAction": {
         "pattern": "Listening on port ([0-9]+)",
-        "uriFormat": "http://localhost:%s/api/v1/users",
+        "uriFormat": "http://localhost:%s/api/v1/books",
         "action": "openExternally"
       }
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Mocha All",
+      "name": "Mocha - All",
       "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "env": {
+        "NODE_ENV": "test",
+        "NODE_NO_WARNINGS": "1"
+      },
       "args": [
-        "NODE_ENV=test NODE_NO_WARNINGS=1",
         "--timeout",
         "999999",
         "--colors",
-        "'${workspaceFolder}/{,!(node_modules)/}*/*.spec.js'"
+        "'${workspaceFolder}/**/*.spec.js'"
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
@@ -36,10 +39,13 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Mocha Current File",
+      "name": "Mocha - Current Spec File",
       "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "env": {
+        "NODE_ENV": "test",
+        "NODE_NO_WARNINGS": "1"
+      },
       "args": [
-        "NODE_ENV=test NODE_NO_WARNINGS=1",
         "--timeout",
         "999999",
         "--colors",

@@ -37,11 +37,6 @@ describe('GET /api/v1/books', () => {
     expect(response.status).to.equal(200);
   });
 
-  // it('responds with list of booksas an array', () => {
-  //   expect(Array.isArray(response.body.books))
-  //     .to.equal(true)
-  // });
-
   it('responds with list of booksas an array', () => {
     expect(response.body.books)
       .to.be.an('array');

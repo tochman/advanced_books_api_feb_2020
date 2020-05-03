@@ -59,7 +59,7 @@ describe('Book', () => {
         expect(err)
           .to.include(
             {
-              message: 'Validation error: Validation notEmpty on title failed'
+              message: 'Validation error: You need to set a title!'
             }
           );
       }
